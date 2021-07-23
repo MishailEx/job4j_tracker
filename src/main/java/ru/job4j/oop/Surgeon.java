@@ -14,5 +14,6 @@ public class Surgeon extends Doctor {
     }
 
     public boolean operation() {
+        return false;
     }
 }

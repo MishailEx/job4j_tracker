@@ -3,5 +3,6 @@ package ru.job4j.oop;
 public class Engineer extends Profession {
 
     public String timeEstimateOnProj() {
+        return null;
     }
 }

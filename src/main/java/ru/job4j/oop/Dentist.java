@@ -14,5 +14,6 @@ public class Dentist extends Doctor {
     }
 
     public String healtooth() {
+        return null;
     }
 }
