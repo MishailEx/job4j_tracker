@@ -12,22 +12,19 @@ public class Library {
         lib[2] = book2;
         lib[3] = book3;
         for (int i = 0; i < lib.length; i++) {
-            Book ex = lib[i];
-            System.out.println("Name - " + ex.getName() + " страниц - " + ex.getCount());
+            System.out.println("Name - " + lib[i].getName() + " страниц - " + lib[i].getCount());
         }
         Book temp = lib[0];
         lib[0] = lib[3];
         lib[3] = temp;
         System.out.println("замена книг");
         for (int i = 0; i < lib.length; i++) {
-            Book ex = lib[i];
-            System.out.println("Name - " + ex.getName() + " страниц - " + ex.getCount());
+            System.out.println("Name - " + lib[i].getName() + " страниц - " + lib[i].getCount());
         }
         System.out.println("только книги Clean code");
         for (int i = 0; i < lib.length; i++) {
-            Book ex = lib[i];
-            if (ex.getName().equals("Clean code")) {
-                System.out.println("Name - " + ex.getName() + " страниц - " + ex.getCount());
+            if ("Clean code".equals(lib[i].getName())) {
+                System.out.println("Name - " + lib[i].getName() + " страниц - " + lib[i].getCount());
             }
         }
     }
