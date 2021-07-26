@@ -1,4 +1,6 @@
-package ru.job4j.poly;
+package ru.job4j.Veh;
+
+import ru.job4j.Veh.Vehicle;
 
 public class Train implements Vehicle {
     @Override
