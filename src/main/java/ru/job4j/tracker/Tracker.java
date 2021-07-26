@@ -52,14 +52,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] nameWithoutNull = new Item[items.length];
-        int size = 0;
-        for (int i = 0; i < items.length; i++) {
-            if (items[i] != null) {
-                nameWithoutNull[size++] = items[i];
-            }
-        }
-        return Arrays.copyOf(nameWithoutNull, size);
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String key) {
