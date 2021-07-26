@@ -90,8 +90,8 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() +
                         "0. Find all" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
-                        item.toString() + System.lineSeparator() +
-                        item1.toString() + System.lineSeparator() +
+                        item + System.lineSeparator() +
+                        item1 + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find all" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
@@ -120,8 +120,8 @@ public class StartUITest {
                         "0. Find by name" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
                         "=== Find items by name ====" + System.lineSeparator() +
-                        item.toString() + System.lineSeparator() +
-                        item3.toString() + System.lineSeparator() +
+                        item + System.lineSeparator() +
+                        item3 + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find by name" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
@@ -148,7 +148,7 @@ public class StartUITest {
                         "0. Find by id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
                         "=== Find item by id ====" + System.lineSeparator() +
-                        item.toString() + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find by id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
