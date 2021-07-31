@@ -24,7 +24,8 @@ public class Library {
         System.out.println("только книги Clean code");
         for (int i = 0; i < lib.length; i++) {
             if ("Clean code".equals(lib[i].getName())) {
-                System.out.println("Name - " + lib[i].getName() + " страниц - " + lib[i].getCount());
+                System.out.println("Name - " + lib[i].getName()
+                        + " страниц - " + lib[i].getCount());
             }
         }
     }

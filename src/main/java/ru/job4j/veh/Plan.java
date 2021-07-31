@@ -1,6 +1,4 @@
-package ru.job4j.Veh;
-
-import ru.job4j.Veh.Vehicle;
+package ru.job4j.veh;
 
 public class Plan implements Vehicle {
     @Override

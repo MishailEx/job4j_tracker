@@ -4,19 +4,17 @@ public class Cat {
     private String food;
     private String name;
 
-    public void giveNick(String nick){
+    public void giveNick(String nick) {
         this.name = nick;
     }
 
     public void show() {
-        System.out.println(name  + " eat " + food);
+        System.out.println(name + " eat " + food);
     }
 
     public void eat(String meat) {
         this.food = meat;
     }
-
-
 
     public static void main(String[] args) {
         System.out.println("There are gav's food.");
