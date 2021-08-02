@@ -17,15 +17,4 @@ public class PassportOffice {
     public Citizen get(String passport) {
         return citizens.get(passport);
     }
-
-    public static void main(String[] args) {
-        Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
-        Citizen citizen2 = new Citizen("2f44a", "Petr Arsentev");
-        PassportOffice office = new PassportOffice();
-        office.add(citizen);
-        office.add(citizen2);
-        for (Map.Entry<String, Citizen> d : office.citizens.entrySet()) {
-            System.out.println(d);
-        }
-    }
 }
