@@ -11,12 +11,13 @@ public class BankService {
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        List<Account> accounts = users.get(user);
-        int index = accounts.indexOf(account);
-        if (index != -1) {
-            System.out.println("Акаунт уже существует");
+        if (user != null) {
+            if (users.get(user).contains(account)) {
+                System.out.println("Аккаунт уже существует");
+            }
+            users.get(user).add(account);
         }
-        users.get(user).add(account);
+        System.out.println("User с таким паспортом не существует");
     }
 
     public User findByPassport(String passport) {
@@ -46,10 +47,12 @@ public class BankService {
         boolean rsl = false;
         Account account = findByRequisite(srcPassport, srcRequisite);
         Account account1 = findByRequisite(destPassport, destRequisite);
-        if (account.getBalance() >= amount) {
-            account1.setBalance(account1.getBalance() + amount);
-            account.setBalance(account.getBalance() - amount);
-            rsl = true;
+        if (account != null && account1 != null) {
+            if (account.getBalance() >= amount) {
+                account1.setBalance(account1.getBalance() + amount);
+                account.setBalance(account.getBalance() - amount);
+                rsl = true;
+            }
         }
         return rsl;
     }
