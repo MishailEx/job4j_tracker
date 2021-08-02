@@ -59,7 +59,7 @@ public class JobTest {
 
         Job job = new Job("Impl task", 0);
         Job job2 = new Job("Impl task", 1);
-        Comparator<Job> cmpNamePriority = new SortedByName().thenComparing(Job::compareTo);
+        Comparator<Job> cmpNamePriority = new SortedByName().thenComparing(new SortedByPriority());
         int rsl = cmpNamePriority.compare(job, job2);
         assertThat(rsl, is(-1));
     }
