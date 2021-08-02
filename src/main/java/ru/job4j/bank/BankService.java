@@ -2,13 +2,32 @@ package ru.job4j.bank;
 
 import java.util.*;
 
+/**
+ * Класс описывающий управление пользователями и их аккаунтами
+ * @author Michail
+ * @version 1.0
+ */
 public class BankService {
+    /**
+     * Хранение пользователей и их аккаунтов осуществляется в коллекции типа Map
+     */
     private Map<User, List<Account>> users = new HashMap<>();
 
+    /**
+     * Метод позволяющий добаить пользователя и его список аккаунтов,
+     * если его там нет
+     * @param user принимает на вход пользователя
+     */
     public void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<Account>());
     }
 
+    /**
+     * Метод добаляет аккаунт пользователю если пльзователь найден
+     * и у него такого аккаунта нет
+     * @param passport принимает паспорт, по которому найдет пользователя
+     * @param account принимает аккаунт который необходимо добавить
+     */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -20,6 +39,11 @@ public class BankService {
         System.out.println("User с таким паспортом не существует");
     }
 
+    /**
+     * Метод позволяющий найти пользователя в коллекции
+     * @param passport принимает паспорт для поиска пользователя
+     * @return найденного пользователя
+     */
     public User findByPassport(String passport) {
         for (User user : users.keySet()) {
             if (user.getPassport().equals(passport)) {
@@ -29,6 +53,12 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Метод ползволяет найти аккаунт пользователя
+     * @param passport принимает паспорт по которому будет найден пользователь
+     * @param requisite принимает реквизит который будут искать в саиске аккаунтов
+     * @return возвращает найденный аккаунт
+     */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
@@ -42,6 +72,15 @@ public class BankService {
         return null;
     }
 
+    /**
+     * Метод позволяющий преводить деньги с одного аккаунта на другой
+     * @param srcPassport принимает значение паспорта пользователя который хочет перевести деньги
+     * @param srcRequisite принимает реквизит пользователя который хочет перевести деньги
+     * @param destPassport принимает значение паспорта пользователя которому хотят перевести деньги
+     * @param destRequisite принимает реквизит пользователя которому хотят перевести деньги
+     * @param amount принимает сумму перевода
+     * @return
+     */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
