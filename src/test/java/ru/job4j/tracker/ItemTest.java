@@ -22,7 +22,5 @@ public class ItemTest {
         assertThat(itemsSort, is(items));
         items.sort(new SortReverseById());
         assertThat(itemsSortReverse, is(items));
-
-
     }
 }
