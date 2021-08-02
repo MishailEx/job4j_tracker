@@ -89,6 +89,7 @@ public class TrackerTest {
         tracker.add(bug);
         int id = bug.getId();
         tracker.delete(id);
-        assertNull(tracker.findById(bug.getId()));
+        boolean check = tracker.findAll().isEmpty();
+        assertThat(true, is(check));
     }
 }

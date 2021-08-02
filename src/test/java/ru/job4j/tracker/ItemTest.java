@@ -11,42 +11,42 @@ import static org.hamcrest.core.Is.is;
 
 public class ItemTest {
     @Test
-    public void sortById(){
+    public void sortById() {
         Item item = new Item(2, "Andrey");
         Item item2 = new Item(3, "Oleg");
         Item item3 = new Item(1, "Boris");
         List<Item> items = Arrays.asList(item, item2, item3);
-        Collections.sort(items, new SortedById());
+        items.sort(new SortedById());
         assertThat(item3, is(items.get(0)));
     }
 
     @Test
-    public void reverseSortById(){
+    public void reverseSortById() {
         Item item = new Item(2, "Andrey");
         Item item2 = new Item(3, "Oleg");
         Item item3 = new Item(1, "Boris");
         List<Item> items = Arrays.asList(item, item2, item3);
-        Collections.sort(items, Collections.reverseOrder(new SortedById()));
+        items.sort(Collections.reverseOrder(new SortedById()));
         assertThat(item2, is(items.get(0)));
     }
 
     @Test
-    public void reverseSortByName(){
+    public void reverseSortByName() {
         Item item = new Item(2, "Andrey");
         Item item2 = new Item(3, "Oleg");
         Item item3 = new Item(1, "Boris");
         List<Item> items = Arrays.asList(item, item2, item3);
-        Collections.sort(items, Collections.reverseOrder(new SortedByName()));
+        items.sort(Collections.reverseOrder(new SortedByName()));
         assertThat(item2, is(items.get(0)));
     }
 
     @Test
-    public void sortByName(){
+    public void sortByName() {
         Item item = new Item(2, "Andrey");
         Item item2 = new Item(3, "Oleg");
         Item item3 = new Item(1, "Boris");
         List<Item> items = Arrays.asList(item, item2, item3);
-        Collections.sort(items, new SortedByName());
+        items.sort(new SortedByName());
         assertThat(item, is(items.get(0)));
     }
 
