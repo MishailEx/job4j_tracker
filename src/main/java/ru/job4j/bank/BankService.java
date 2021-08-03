@@ -19,7 +19,7 @@ public class BankService {
      * @param user принимает на вход пользователя
      */
     public void addUser(User user) {
-        users.putIfAbsent(user, new ArrayList<Account>());
+        users.putIfAbsent(user, new ArrayList<>());
     }
 
     /**
@@ -45,12 +45,10 @@ public class BankService {
      * @return найденного пользователя
      */
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                return user;
-            }
-        }
-        return null;
+        return users.keySet().stream()
+                .filter(s -> s.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -62,12 +60,11 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
         if (user != null) {
-            List<Account> accounts = users.get(user);
-            for (Account account : accounts) {
-                if (account.getRequisite().equals(requisite)) {
-                    return account;
-                }
-            }
+            return users.get(user)
+                    .stream()
+                    .filter(e -> e.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
         return null;
     }
@@ -79,7 +76,7 @@ public class BankService {
      * @param destPassport принимает значение паспорта пользователя которому хотят перевести деньги
      * @param destRequisite принимает реквизит пользователя которому хотят перевести деньги
      * @param amount принимает сумму перевода
-     * @return
+     * @return возвращает успешно прошла операция или нет
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
