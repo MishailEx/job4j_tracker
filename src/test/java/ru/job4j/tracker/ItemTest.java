@@ -11,7 +11,7 @@ import static org.hamcrest.core.Is.is;
 
 public class ItemTest {
     @Test
-    public void sortByIdAndReverseSort() {
+    public void sortById() {
         Item item = new Item(2, "Andrey");
         Item item2 = new Item(3, "Oleg");
         Item item3 = new Item(1, "Boris");
@@ -20,6 +20,17 @@ public class ItemTest {
         List<Item> itemsSortReverse = Arrays.asList(item2, item, item3);
         items.sort(new SortedById());
         assertThat(itemsSort, is(items));
+        items.sort(new SortReverseById());
+        assertThat(itemsSortReverse, is(items));
+    }
+
+    @Test
+    public void sortReverseById() {
+        Item item = new Item(2, "Andrey");
+        Item item2 = new Item(3, "Oleg");
+        Item item3 = new Item(1, "Boris");
+        List<Item> items = Arrays.asList(item, item2, item3);
+        List<Item> itemsSortReverse = Arrays.asList(item2, item, item3);
         items.sort(new SortReverseById());
         assertThat(itemsSortReverse, is(items));
     }
