@@ -33,8 +33,9 @@ public class BankService {
         if (user.isPresent()) {
             if (users.get(user.get()).contains(account)) {
                 System.out.println("Аккаунт уже существует");
+            } else if (!users.get(user.get()).contains(account)) {
+                users.get(user.get()).add(account);
             }
-            users.get(user.get()).add(account);
         } else {
             System.out.println("User с таким паспортом не существует");
         }
