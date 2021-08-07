@@ -9,8 +9,7 @@ import java.util.function.Supplier;
 
 public class FunctionProb {
     public static List<Double> diapason(int start, int end, Function<Double, Double> func) {
-        Supplier<List<Double>> array = ArrayList::new;
-        List<Double> list = array.get();
+        List<Double> list = new ArrayList<>();
         BiConsumer<Integer, Integer> con = (i, i2) -> {
             for (double j = i; j < i2; j++) {
                 list.add(func.apply(j));
