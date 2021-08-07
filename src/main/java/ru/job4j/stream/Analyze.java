@@ -31,7 +31,7 @@ public class Analyze {
         return stream
                 .map(Pupil::getSubjects)
                 .flatMap(Collection::stream)
-                .collect(Collectors.groupingBy(Subject::getName,
+                .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new,
                         Collectors.averagingDouble(Subject::getScore)))
                 .entrySet().stream()
                 .map(e -> new Tuple(e.getKey(), e.getValue()))
