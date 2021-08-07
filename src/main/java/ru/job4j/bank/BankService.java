@@ -31,10 +31,10 @@ public class BankService {
     public void addAccount(String passport, Account account) {
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
-            if (users.get(user.get()).contains(account)) {
-                System.out.println("Аккаунт уже существует");
-            } else if (!users.get(user.get()).contains(account)) {
+            if (!users.get(user.get()).contains(account)) {
                 users.get(user.get()).add(account);
+            } else {
+                System.out.println("Аккаунт уже существует");
             }
         } else {
             System.out.println("User с таким паспортом не существует");
