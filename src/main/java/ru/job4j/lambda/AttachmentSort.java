@@ -18,13 +18,10 @@ public class AttachmentSort {
         };
         attachments.sort(comparator);
         System.out.println(attachments);
-        Comparator comparator1 = new Comparator() {
-            @Override
-            public int compare(Object o1, Object o2) {
-                Attachment left = (Attachment) o1;
-                Attachment right = (Attachment) o2;
-                return left.getName().compareTo(right.getName());
-            }
+        Comparator comparator1 = (o1, o2) -> {
+            Attachment left = (Attachment) o1;
+            Attachment right = (Attachment) o2;
+            return left.getName().compareTo(right.getName());
         };
         attachments.sort(comparator1);
         System.out.println(attachments);
