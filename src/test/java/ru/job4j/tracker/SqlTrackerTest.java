@@ -73,7 +73,7 @@ public class SqlTrackerTest {
         SqlTracker tracker = new SqlTracker(connection);
         Item item = new Item("item");
         Item item2 = new Item("item2");
-        List<Item> arrayList = Arrays.asList(item, item2);
+        List<Item> arrayList = List.of(item, item2);
         tracker.add(item);
         tracker.add(item2);
         assertThat(tracker.findAll(), is(arrayList));
