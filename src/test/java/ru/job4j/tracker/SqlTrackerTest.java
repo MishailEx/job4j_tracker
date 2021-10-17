@@ -8,10 +8,7 @@ import ru.job4j.tracker.Item;
 
 import java.io.InputStream;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -63,7 +60,7 @@ public class SqlTrackerTest {
     public void whenSaveItemAndFindByNameThenMustBeTheSame() {
         SqlTracker tracker = new SqlTracker(connection);
         Item item = new Item("item");
-        List<Item> arrayList = Arrays.asList(item);
+        List<Item> arrayList = Collections.singletonList(item);
         tracker.add(item);
         assertThat(tracker.findByName(item.getName()), is(arrayList));
     }
@@ -105,7 +102,7 @@ public class SqlTrackerTest {
         Item item2 = new Item("item2");
         tracker.add(item);
         tracker.add(item2);
-        assertTrue(tracker.replace(item.getId(),item2));
+        assertTrue(tracker.replace(item.getId(), item2));
     }
 
     @Test
@@ -114,7 +111,7 @@ public class SqlTrackerTest {
         Item item = new Item("item");
         Item item2 = new Item("item2");
         tracker.add(item);
-        assertFalse(tracker.replace(item2.getId(),item2));
+        assertFalse(tracker.replace(item2.getId(), item2));
     }
 
     @Test
