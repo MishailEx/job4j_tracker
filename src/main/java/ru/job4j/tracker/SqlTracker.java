@@ -137,7 +137,7 @@ public class SqlTracker implements Store {
                      cn.prepareStatement("select * from items where id = ?")) {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
-                while (resultSet.next()) {
+                if (resultSet.next()) {
                     item = new Item(resultSet.getInt("id"),
                             resultSet.getString("name"),
                             resultSet.getTimestamp("created").toLocalDateTime());
@@ -147,25 +147,5 @@ public class SqlTracker implements Store {
             e.printStackTrace();
         }
         return item;
-    }
-
-    public static void main(String[] args) {
-        Input input = new ConsoleInput();
-        Output output = new ConsoleOutput();
-        try (Store tracker = new SqlTracker()) {
-            tracker.init();
-            List<UserAction> actions = List.of(
-                    new CreateAction(output),
-                    new ReplaceAction(output),
-                    new DeleteAction(output),
-                    new FindAllAction(output),
-                    new FindByIdAction(output),
-                    new FindByNameAction(output),
-                    new ExitAction(output)
-            );
-            new StartUI(output).init(input, tracker, actions);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
