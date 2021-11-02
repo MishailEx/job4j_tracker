@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 
 public class MemTracker implements Store {
     private final List<Item> items = new ArrayList<>();
@@ -93,15 +94,6 @@ public class MemTracker implements Store {
     public void close() throws Exception {
     }
 
-    public static void main(String[] args) {
-        MemTracker tracker = new MemTracker();
-        Item item = new Item("first");
-        Item item2 = new Item("second");
-        tracker.add(item);
-        tracker.add(item2);
-        List<Item> items1 = tracker.findAll();
-        for (Item item1 : items1) {
-            System.out.println(item1);
-        }
+    public static void main(String[] args) throws InterruptedException {
     }
 }
