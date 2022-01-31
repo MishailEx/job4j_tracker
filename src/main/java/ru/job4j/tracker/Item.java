@@ -15,6 +15,7 @@ public class Item {
     private int id;
     private String name;
     private LocalDateTime created = LocalDateTime.now().withNano(0);
+    private String description;
 
     public Item() {
     }
@@ -32,6 +33,12 @@ public class Item {
         this.id = id;
         this.name = name;
         this.created = created;
+    }
+
+    public Item(String name, LocalDateTime created, String description) {
+        this.name = name;
+        this.created = created;
+        this.description = description;
     }
 
     public LocalDateTime getCreated() {
