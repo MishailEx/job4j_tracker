@@ -16,7 +16,7 @@ public class HibernateRun {
                 .configure().build();
         try {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
-//            Item item = create(new Item("Learn Hibernate", LocalDateTime.of(2022, 01, 19, 14, 5), "new"), sf);
+            Item item = create(new Item("Learn Hibernate", LocalDateTime.of(2022, 01, 19, 14, 5), "new"), sf);
             Item item2 = create(new Item("Learn Hibernate2", LocalDateTime.now(), "new"), sf);
         }  catch (Exception e) {
             e.printStackTrace();
