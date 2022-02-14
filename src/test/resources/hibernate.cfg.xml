@@ -14,7 +14,8 @@
         <property name="hbm2ddl.auto">create</property>
         <!-- List of XML mapping files -->
 
-        <mapping class="City"/>
+        <mapping class="ru.job4j.tracker.Item"/>
+        <mapping class="ru.job4j.tracker.HbmTracker"/>
 
     </session-factory>
 </hibernate-configuration>
